@@ -31,8 +31,7 @@ export default function Contact() {
         duration: 1,
         scrollTrigger: {
           trigger: formRef.current,
-          start: 'top 90%',
-          end: 'bottom 20%',
+          start: 'top 95%',
           toggleActions: 'play none none reverse',
         },
       });
@@ -46,8 +45,7 @@ export default function Contact() {
         delay: index * 0.1,
         scrollTrigger: {
           trigger: info,
-          start: 'top 90%',
-          end: 'bottom 20%',
+          start: 'top 95%',
           toggleActions: 'play none none reverse',
         },
       });
@@ -64,10 +62,10 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 2000));
-    
+
     console.log('Form submitted:', formData);
     setIsSubmitting(false);
     setFormData({ name: '', email: '', subject: '', message: '' });
@@ -133,7 +131,7 @@ export default function Contact() {
             <div className="space-y-4">
               {contactInfo.map((info, index) => {
                 const IconComponent = info.icon;
-                
+
                 return (
                   <div
                     key={index}
@@ -179,7 +177,7 @@ export default function Contact() {
               <div className="flex gap-4">
                 {socialLinks.map((social, index) => {
                   const IconComponent = social.icon;
-                  
+
                   return (
                     <a
                       key={index}

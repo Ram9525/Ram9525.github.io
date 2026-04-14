@@ -15,19 +15,31 @@ export default function Projects() {
     setIsVisible(true);
   }, []);
 
+  useEffect(() => {
+    // Refresh ScrollTrigger when filter changes and DOM updates
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [activeFilter]);
+
   useGSAP(() => {
+    // Refresh ScrollTrigger after filter change to recalculate positions
+    ScrollTrigger.refresh();
+
     projectsRef.current.forEach((project, index) => {
-      gsap.from(project, {
-        y: 80,
-        opacity: 0,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: project,
-          start: 'top 90%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none reverse',
-        },
-      });
+      if (project) {
+        gsap.from(project, {
+          y: 80,
+          opacity: 0,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: project,
+            start: 'top 90%',
+            toggleActions: 'play none none none',
+          },
+        });
+      }
     });
   }, [activeFilter]);
 
