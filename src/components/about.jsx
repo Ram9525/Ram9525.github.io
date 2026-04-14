@@ -1,4 +1,3 @@
-import profileImage from '../assets/Ram_Kumar.png'; // replace with your image
 import { Link } from 'react-router-dom';
 import { SendHorizonal } from 'lucide-react';
 import gsap from 'gsap';
@@ -115,7 +114,7 @@ const AboutMe = () => {
 
           <img
 
-            src={profileImage}
+            src="https://res.cloudinary.com/dju84uvhd/image/upload/f_webp,q_auto/v1776165743/Ram_Kumar_lw3mxx.png"
             alt="Ram Kumar"
             className="rounded-lg shadow-lg w-full max-w-sm object-cover mt-8"
           />
